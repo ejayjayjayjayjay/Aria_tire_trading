@@ -1,111 +1,70 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--plugins-->
-    <link href="{{ asset('adminbackend/assets/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet" />
-    <link href="{{ asset('adminbackend/assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css') }}" rel="stylesheet" />
-    <link href="{{ asset('adminbackend/assets/plugins/metismenu/css/metisMenu.min.css') }}" rel="stylesheet" />
-    <!-- loader-->
-    <link href="{{ asset('adminbackend/assets/css/pace.min.css') }}" rel="stylesheet" />
-    <script src="{{ asset('adminbackend/assets/js/pace.min.js') }}"></script>
-    <!-- Bootstrap CSS -->
-    <link href="{{ asset('adminbackend/assets/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('adminbackend/assets/css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('adminbackend/assets/css/icons.css') }}" rel="stylesheet">
-    <title>Admin Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <title>Admin dashboard login</title>
 </head>
+<body>
 
-<body class="bg-login">
-    <!--wrapper-->
-    <div class="wrapper">
-        <div class="section-authentication-signin d-flex align-items-center justify-content-center my-5 my-lg-0">
-            <div class="container-fluid">
-                <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3">
-                    <div class="col mx-auto">
-                        <div class="mb-4 text-center">
-                            <img src="{{ asset('adminbackend/assets/images/aria-v-tire-trading-logo-removebg-preview.png') }}" width="180" alt="" />
-                        </div>
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="border p-4 rounded">
-                <div class="form-body">
-                    <form class="row g-3" method="POST" action="{{ route('login') }}">
+    <section class="vh-100" style="background-color: #9A616D;">
+        <div class="container py-5 h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col col-xl-10">
+              <div class="card" style="border-radius: 1rem;">
+                <div class="row g-0">
+                  <div class="col-md-6 col-lg-5 d-none d-md-block">
+                    <img src="https://images.unsplash.com/photo-1599082267768-4815b2ea6bd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"
+                      alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
+                  </div>
+                  <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                    <div class="card-body p-4 p-lg-5 text-black">
+
+                    <form action="{{ route('login') }}" method="post">
                         @csrf
-                        <div class="col-12">
-                            <label for="inputEmailAddress" class="form-label">Email Address</label>
-                            <input type="email" name="email" class="form-control" id="email"
-                                placeholder="Email Address">
+                        <div class="d-flex align-items-center mb-3 pb-1">
+                          <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
+                          <span class="h1 fw-bold mb-0">Aria V Tire Trading</span>
                         </div>
-                        <div class="col-12">
-                            <label for="inputChoosePassword" class="form-label">Enter
-                                Password</label>
-                            <div class="input-group" id="show_hide_password">
-                                <input type="password" name="password" class="form-control border-end-0"
-                                    id="password"
-                                    placeholder="Enter Password"> <a href="javascript:;"
-                                    class="input-group-text bg-transparent"><i
-                                        class='bx bx-hide'></i></a>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox"
-                                    id="flexSwitchCheckChecked" checked>
-                                <label class="form-check-label"
-                                    for="flexSwitchCheckChecked">Remember Me</label>
-                            </div>
-                        </div>
-                        <div class="col-md-6 text-end"> <a
-                                href="authentication-forgot-password.html">Forgot Password ?</a>
-                        </div>
-                        <div class="col-12">
-                            <div class="d-grid">
-                                <button type="submit" class="btn btn-primary"><i
-                                        class="bx bxs-lock-open"></i>Admin Sign in</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--end row-->
-            </div>
-        </div>
-    </div>
-    <!--end wrapper-->
-    <!-- Bootstrap JS -->
-    <script src="{{ asset('adminbackend/assets/js/bootstrap.bundle.min.js') }}"></script>
-    <!--plugins-->
-    <script src="{{ asset('adminbackend/assets/js/jquery.min.js') }}"></script>
-    <script src="{{ asset('adminbackend/assets/plugins/simplebar/js/simplebar.min.js') }}"></script>
-    <script src="{{ asset('adminbackend/assets/plugins/metismenu/js/metisMenu.min.js') }}"></script>
-    <script src="{{ asset('adminbackend/assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js') }}"></script>
-    <!--Password show & hide js -->
-    <script>
-        $(document).ready(function() {
-            $("#show_hide_password a").on('click', function(event) {
-                event.preventDefault();
-                if ($('#show_hide_password input').attr("type") == "text") {
-                    $('#show_hide_password input').attr('type', 'password');
-                    $('#show_hide_password i').addClass("bx-hide");
-                    $('#show_hide_password i').removeClass("bx-show");
-                } else if ($('#show_hide_password input').attr("type") == "password") {
-                    $('#show_hide_password input').attr('type', 'text');
-                    $('#show_hide_password i').removeClass("bx-hide");
-                    $('#show_hide_password i').addClass("bx-show");
-                }
-            });
-        });
-    </script>
-    <!--app JS-->
-    <script src="{{ asset('adminbackend/assets/js/app.js') }}"></script>
-</body>
 
+                        <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h5>
+
+                        <div class="form-outline mb-4">
+                          <input type="email" name="email" id="email" class="form-control form-control-lg" />
+                          <label class="form-label" for="form2Example17">Email address</label>
+                        </div>
+
+                        <div class="form-outline mb-4">
+                          <input type="password" name="password" id="password" class="form-control form-control-lg" />
+                          <label class="form-label" for="form2Example27">Password</label>
+                        </div>
+
+                        <div class="pt-1 mb-4">
+                          <button class="btn btn-dark btn-lg btn-block" type="submit">Sign in</button>
+                        </div>
+
+                        <a class="small text-muted" href="#!">Forgot password?</a>
+                        <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a href="#!"
+                            style="color: #393f81;">Register here</a></p>
+                        <a href="#!" class="small text-muted">Terms of use.</a>
+                        <a href="#!" class="small text-muted">Privacy policy</a>
+                      </form>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
+</body>
 </html>
+
+
